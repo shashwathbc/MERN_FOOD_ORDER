@@ -20,9 +20,9 @@ app.use("/api/pizzas/" , pizzasRoute);
 app.use("/api/users/" , userRoute);
 app.use("/api/orders/" , ordersRoute);
 
-app.get("/" ,  (req , res) => {             // default root 
-    res.send("server working" + port);             // to check if it is working 
-});
+// app.get("/" ,  (req , res) => {             // default root 
+//     res.send("server working" + port);             // to check if it is working 
+// });
 
 
 // app.get("/getpizzas" , (req , res) => {
@@ -42,7 +42,7 @@ const port = process.env.PORT || 8000;      //  this is the port where backent w
 //hosting:
 __dirname = path.resolve();
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname , "/client/build")))
+    app.use(express.static( "client/build"))
     app.get("*" , (req , res) => {
         res.sendFile(path.resolve(__dirname , "client" , "build" , "index.html"))
     })
